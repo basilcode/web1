@@ -36,7 +36,15 @@
       //    your app or not.
       //
       // These three cases are handled in the callback function.
-
+      var callback = function(response){
+        console.log(response);
+        // statusChangeCallback(response)
+        if(response.status === 'connected'){
+          document.querySelector('#authBth').value = 'Logout';
+        } else {
+          document.querySelector('#authBth').value = 'Login';
+        }
+      }
       FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
       });
@@ -86,6 +94,7 @@
 
 </head>
 <body>
+  <input type="botton" id="authBth" value="checking...">
  <h1><a href="index.html">basil::code</a></h1>
     <input type="button" value="night" onclick="
       daynightHandler(this)
