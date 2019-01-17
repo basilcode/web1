@@ -92,7 +92,19 @@
 
 </head>
 <body>
-  <input type="button" id="authBtn" value="checking...">
+  <input type="button" id="authBtn" value="checking..." onclick="
+    if(this.value === 'Login'){
+      //now logout
+      FB.login(function(res){
+        console.log('login =>',res);
+      });
+    } else {
+      //now Login
+      FB.logout(function(res){
+
+      });
+    }
+  ">
  <h1><a href="index.html">basil::code</a></h1>
     <input type="button" value="night" onclick="
       daynightHandler(this)
