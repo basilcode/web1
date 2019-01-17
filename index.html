@@ -45,9 +45,7 @@
           document.querySelector('#authBth').value = 'Login';
         }
       }
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-      });
+      FB.getLoginStatus(callback);
 
     };
 
