@@ -15,9 +15,81 @@
   gtag('config', 'UA-131758988-1');
 </script>
 
+<script>
+  window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '326996511246747',
+        cookie     : true,  // enable cookies to allow the server to access
+                            // the session
+        xfbml      : true,  // parse social plugins on this page
+        version    : 'v3.2' // use graph api version 2.8
+      });
+
+      // Now that we've initialized the JavaScript SDK, we call
+      // FB.getLoginStatus().  This function gets the state of the
+      // person visiting this page and can return one of three states to
+      // the callback you provide.  They can be:
+      //
+      // 1. Logged into your app ('connected')
+      // 2. Logged into Facebook, but not your app ('not_authorized')
+      // 3. Not logged into Facebook and can't tell if they are logged into
+      //    your app or not.
+      //
+      // These three cases are handled in the callback function.
+
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
+
+    };
+
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script>
+  function daynightHandler(self){
+  var target = document.querySelector('body');
+  var target2 = document.querySelector('#grid');
+  if(self.value === 'night'){
+    target.style.backgroundColor = 'black';
+    target2.style.color = 'white';
+    self.value = 'day';
+
+    var alist = document.querySelectorAll('a');
+    var i = 0;
+    while(i < alist.length){
+      alist[i].style.color = 'powderblue';
+      i = i + 1;
+    }
+  }else{
+    target.style.backgroundColor = 'white';
+    target2.style.color = 'black';
+    self.value = 'night';
+
+    var alist = document.querySelectorAll('a');
+    var i = 0;
+    while(i < alist.length){
+      alist[i].style.color = 'blue';
+      i = i + 1;
+    }
+  }
+}
+</script>
+
 </head>
 <body>
  <h1><a href="index.html">basil::code</a></h1>
+    <input type="button" value="night" onclick="
+      daynightHandler(this)
+    ">
    <div id="grid">
      <ol>
        <li><a href="1.html">HTML</a></li>
