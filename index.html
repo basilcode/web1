@@ -9,7 +9,7 @@
 
     window.fbAsyncInit = function() {
     FB.init({
-      appId      : '208194043382302',
+      appId      : '326996511246747',
       cookie     : true,  // enable cookies to allow the server to access
                           // the session
       xfbml      : true,  // parse social plugins on this page
@@ -29,6 +29,11 @@
     var callback = function(response) {
       console.log(response);
       // statusChangeCallback(response);
+      if(response.status === 'connected'){
+        document.querySelector('#authBtn').value = 'Logout';
+      } else {
+        document.querySelector('#authBtn').value = 'Login';
+      }
     }
     FB.getLoginStatus(callback);
   };
