@@ -15,19 +15,20 @@
   gtag('config', 'UA-131758988-1');
 </script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
 
 <script>
 
-var checkLoginStatus = function(response){
-  console.log(response);
-  //statusChangeCallback(response)
-  if(response.status === 'connected'){
-    document.querySelector('#authBth').value = 'Logout';
-  } else {
-    document.querySelector('#authBth').value = 'Login';
+  var checkLoginStatus = function(response){
+    console.log(response);
+    //statusChangeCallback(response)
+    if(response.status === 'connected'){
+      document.querySelector('#authBth').value = 'Logout';
+    } else {
+      document.querySelector('#authBth').value = 'Login';
+    }
   }
-}
 
   window.fbAsyncInit = function() {
       FB.init({
@@ -50,22 +51,22 @@ var checkLoginStatus = function(response){
       //
       // These three cases are handled in the callback function.
 
-      FB.getLoginStatus(checkLoginStatus);
+       FB.getLoginStatus(checkLoginStatus);
 
     };
 
 
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+    // Load the SDK asynchronously
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<script>
+<!-- <script>
   function daynightHandler(self){
   var target = document.querySelector('body');
   var target2 = document.querySelector('#grid');
@@ -93,7 +94,7 @@ var checkLoginStatus = function(response){
     }
   }
 }
-</script>
+</script> -->
 
 </head>
 <body>
