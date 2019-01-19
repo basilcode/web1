@@ -21,16 +21,6 @@
 
 <script>
 
-  var checkLoginStatus = function(response){
-    console.log(response);
-    //statusChangeCallback(response)
-    if(response.status === 'connected'){
-      document.querySelector('#authBth').value = 'Logout';
-    } else {
-      document.querySelector('#authBth').value = 'Login';
-    }
-  }
-
   window.fbAsyncInit = function() {
       FB.init({
         appId      : '326996511246747',
@@ -51,7 +41,15 @@
       //    your app or not.
       //
       // These three cases are handled in the callback function.
-
+      var checkLoginStatus = function(response){
+        console.log(response);
+        //statusChangeCallback(response)
+        if(response.status === 'connected'){
+          document.querySelector('#authBth').value = 'Logout';
+        } else {
+          document.querySelector('#authBth').value = 'Login';
+        }
+      }
        FB.getLoginStatus(checkLoginStatus);
 
     };
@@ -104,13 +102,13 @@
       //now logout
       FB.login(function(res){
         console.log('login =>',res);
-        checkLoginStatus(res);
+        <!-- checkLoginStatus(res); -->
       });
     } else {
       //now Login
       FB.logout(function(res){
         console.log('logout =>',res);
-        checkLoginStatus(res);
+        <!-- checkLoginStatus(res); -->
       });
     }
   ">
