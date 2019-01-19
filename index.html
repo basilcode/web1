@@ -21,10 +21,10 @@
 
 <script>
 
-  var checkLoginStatus = function(res){
-    console.log(res);
+  var checkLoginStatus = function(response){
+    console.log(response);
     //statusChangeCallback(response)
-    if(res.status === 'connected'){
+    if(response.status === 'connected'){
       document.querySelector('#authBth').value = 'Logout';
     } else {
       document.querySelector('#authBth').value = 'Login';
