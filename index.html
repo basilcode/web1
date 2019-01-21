@@ -63,6 +63,37 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
   </script>
+
+  <script>
+  function daynightHandler(self){
+  var target = document.querySelector('body');
+  var target2 = document.querySelector('#grid');
+  if(self.value === 'night'){
+    target.style.backgroundColor = 'black';
+    target2.style.color = 'white';
+    self.value = 'day';
+
+    var alist = document.querySelectorAll('a');
+    var i = 0;
+    while(i < alist.length){
+      alist[i].style.color = 'powderblue';
+      i = i + 1;
+    }
+  }else{
+    target.style.backgroundColor = 'white';
+    target2.style.color = 'black';
+    self.value = 'night';
+
+    var alist = document.querySelectorAll('a');
+    var i = 0;
+    while(i < alist.length){
+      alist[i].style.color = 'blue';
+      i = i + 1;
+    }
+  }
+}
+</script>
+
 </head>
 <body>
   <input type="button" id="authBtn" value="checking..." onclick="
