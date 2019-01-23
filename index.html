@@ -26,15 +26,18 @@
     console.log('init');
     gapi.load('auth2', function() {
       console.log('auth2');
-      var gauth = gapi.auth2.init({
+      window.gauth = gapi.auth2.init({
         client_id:'1092038344589-njq8e2r6suv6gh7abmr5rio4sio26hd6.apps.googleusercontent.com'
       })
       gauth.then(function(){
         console.log('gooleAuth success');
+        var loginBtn = document.querySelector('#loginBtn');
         if(gauth.isSignedIn.get()){
           console.log('logined');
+          loginBtn.value = 'logout';
         } else {
           console.log('logouted');
+          loginBtn.value = 'login';
         }
       }, function(){
         console.log('gooleAuth fail');
@@ -126,6 +129,19 @@
 
 </head>
 <body>
+
+  <input type="button" id="loginBtn" value="checking..." onclick="
+    if(this.value === 'login'){
+      gauth.signIn().then(function(){
+        console.log('gauth.signIn()')
+      });
+    } else {
+      gauth.signOut().then(function(){
+        console.log('gauth.signOut()')
+      });
+    }
+  ">
+
   <input type="button" id="authBtn" value="checking..." onclick="
       if(this.value === 'Login'){
         // now logout
