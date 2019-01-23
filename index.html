@@ -15,7 +15,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="colors.js"></script>
-
+ <!-- Google login -->
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <meta name="google-signin-client_id" content="1092038344589-njq8e2r6suv6gh7abmr5rio4sio26hd6.apps.googleusercontent.com">
   <script>
@@ -27,6 +27,14 @@
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
     }
   </script>
+ <!-- End Google login -->
+
+<script>
+  function init(){
+    console.log('init');
+  }
+</script>
+
 
   <script>
 
@@ -182,5 +190,8 @@ s0.parentNode.insertBefore(s1,s0);
 </script>
 <!--End of Tawk.to Script-->
  </p>
+ <!-- Google Auth Setup -->
+ <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+ <!-- End Google Auth Setup -->
 </body>
 </html>
