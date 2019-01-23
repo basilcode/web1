@@ -136,12 +136,12 @@
   <input type="button" id="loginBtn" value="checking..." onclick="
     if(this.value === 'Login'){
       gauth.signIn().then(function(){
-        console.log('gauth.signIn()')
+        console.log('gauth.signIn()');
         checkLoginStatus();
       });
     } else {
       gauth.signOut().then(function(){
-        console.log('gauth.signOut()')
+        console.log('gauth.signOut()');
         checkLoginStatus();
       });
     }
@@ -152,7 +152,7 @@
         // now logout
         FB.login(function(res){
           console.log('login =>', res);
-          checkLoginStatus(res);ㄴ
+          checkLoginStatus(res);
         });
       } else {
         // now login
