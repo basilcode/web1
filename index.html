@@ -4,6 +4,7 @@
   <title>basil::code - Welcom</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131758988-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -14,6 +15,9 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="colors.js"></script>
+
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="1092038344589-njq8e2r6suv6gh7abmr5rio4sio26hd6.apps.googleusercontent.com">
   <script>
 
     var checkLoginStatus = function(response) {
@@ -96,6 +100,7 @@
 
 </head>
 <body>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
   <input type="button" id="authBtn" value="checking..." onclick="
       if(this.value === 'Login'){
         // now logout
