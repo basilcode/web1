@@ -22,7 +22,7 @@
  <!-- End Google login -->
 
 <script>
-  function checkLoginStatus(){
+  function gcheckLoginStatus(){
     var loginBtn = document.querySelector('#loginBtn');
     if(gauth.isSignedIn.get()){
       console.log('logined');
@@ -41,7 +41,7 @@
       })
       gauth.then(function(){
         console.log('gooleAuth success');
-        checkLoginStatus();
+        gcheckLoginStatus();
       }, function(){
         console.log('gooleAuth fail');
       });
@@ -137,12 +137,12 @@
     if(this.value === 'Login'){
       gauth.signIn().then(function(){
         console.log('gauth.signIn()');
-        checkLoginStatus();
+        gcheckLoginStatus();
       });
     } else {
       gauth.signOut().then(function(){
         console.log('gauth.signOut()');
-        checkLoginStatus();
+        gcheckLoginStatus();
       });
     }
   ">
