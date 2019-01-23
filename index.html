@@ -17,21 +17,24 @@
   <script src="colors.js"></script>
  <!-- Google login -->
   <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <meta name="google-signin-client_id" content="1092038344589-njq8e2r6suv6gh7abmr5rio4sio26hd6.apps.googleusercontent.com">
-  <script>
-      function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-    }
-  </script>
+
+
  <!-- End Google login -->
 
 <script>
   function init(){
     console.log('init');
+    gapi.load('auth2', function() {
+      console.log('auth2');
+      var gauth = gapi.auth2.init({
+        client_id:'1092038344589-njq8e2r6suv6gh7abmr5rio4sio26hd6.apps.googleusercontent.com'
+      })
+      gauth.then(function(){
+        console.log('gooleAuth success');
+      }, function(){
+        console.log('gooleAuth fail');
+      });
+     });
   }
 </script>
 
@@ -118,7 +121,6 @@
 
 </head>
 <body>
-  <div class="g-signin2" data-onsuccess="onSignIn"></div>
   <input type="button" id="authBtn" value="checking..." onclick="
       if(this.value === 'Login'){
         // now logout
