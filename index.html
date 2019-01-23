@@ -34,10 +34,10 @@
         var loginBtn = document.querySelector('#loginBtn');
         if(gauth.isSignedIn.get()){
           console.log('logined');
-          loginBtn.value = 'logout';
+          loginBtn.value = 'Logout';
         } else {
           console.log('logouted');
-          loginBtn.value = 'login';
+          loginBtn.value = 'Login';
         }
       }, function(){
         console.log('gooleAuth fail');
@@ -131,7 +131,7 @@
 <body>
 
   <input type="button" id="loginBtn" value="checking..." onclick="
-    if(this.value === 'login'){
+    if(this.value === 'Login'){
       gauth.signIn().then(function(){
         console.log('gauth.signIn()')
       });
